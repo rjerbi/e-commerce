@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import api from '../api';
 import Chatbot from '../components/Chatbot';
 import ProductCard from '../components/ProductCard';
