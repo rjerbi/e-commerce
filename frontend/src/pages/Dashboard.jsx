@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api";
 
 function Dashboard() {
 
@@ -24,13 +24,13 @@ function Dashboard() {
   const fetchData = async () => {
 
     const productsRes =
-      await axios.get("http://localhost:5000/api/products");
+      await api.get("/products");
 
     const ordersRes =
-      await axios.get("http://localhost:5000/api/orders");
+      await api.get("/orders");
 
     const returnsRes =
-      await axios.get("http://localhost:5000/api/returns");
+      await api.get("/returns");
 
     setProducts(productsRes.data);
     setOrders(ordersRes.data);
@@ -46,8 +46,8 @@ function Dashboard() {
 
     e.preventDefault();
 
-    await axios.post(
-      "http://localhost:5000/api/products",
+    await api.post(
+      "/products",
       formData
     );
 
@@ -59,9 +59,7 @@ function Dashboard() {
   // DELETE PRODUCT
   const deleteProduct = async (id) => {
 
-    await axios.delete(
-      `http://localhost:5000/api/products/${id}`
-    );
+    await api.delete(`/products/${id}`);
 
     fetchData();
   };
@@ -69,9 +67,7 @@ function Dashboard() {
   // DELETE ORDER
   const deleteOrder = async (id) => {
 
-    await axios.delete(
-      `http://localhost:5000/api/orders/${id}`
-    );
+    await api.delete(`/orders/${id}`);
 
     fetchData();
   };
@@ -79,8 +75,8 @@ function Dashboard() {
   // DELIVER ORDER
   const deliverOrder = async (id) => {
 
-    await axios.put(
-      `http://localhost:5000/api/orders/${id}`,
+    await api.put(
+      `/orders/${id}`,
       {
         status: "Delivered"
       }
@@ -92,8 +88,8 @@ function Dashboard() {
   // RETURN ORDER
   const returnOrder = async (id) => {
 
-    await axios.put(
-      `http://localhost:5000/api/orders/${id}`,
+    await api.put(
+      `/orders/${id}`,
       {
         status: "Returned"
       }
@@ -107,8 +103,8 @@ function Dashboard() {
 
     e.preventDefault();
 
-    await axios.post(
-      "http://localhost:5000/api/returns",
+    await api.post(
+      "/returns",
       returnForm
     );
 
@@ -120,8 +116,8 @@ function Dashboard() {
   // UPDATE RETURN
   const updateReturn = async (id, status) => {
 
-    await axios.put(
-      `http://localhost:5000/api/returns/${id}`,
+    await api.put(
+      `/returns/${id}`,
       { status }
     );
 

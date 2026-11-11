@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import DashboardSidebar from '../components/DashboardSidebar';
 import './DashboardOrders.css';
 
@@ -12,7 +12,7 @@ function DashboardOrders() {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/orders');
+      const res = await api.get('/orders');
       setOrders(res.data);
     } catch (error) {
       console.error('Error fetching orders:', error);
@@ -22,7 +22,7 @@ function DashboardOrders() {
   const handleDeleteOrder = async (id) => {
     if (window.confirm('Are you sure you want to delete this order?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/orders/${id}`);
+        await api.delete(`/orders/${id}`);
         alert('Order Deleted');
         fetchOrders();
       } catch (error) {
@@ -34,8 +34,8 @@ function DashboardOrders() {
 
   const handleDeliverOrder = async (id) => {
     try {
-      await axios.put(
-        `http://localhost:5000/api/orders/${id}`,
+      await api.put(
+        `/orders/${id}`,
         { status: 'Delivered' }
       );
       alert('Order marked as Delivered');
@@ -48,8 +48,8 @@ function DashboardOrders() {
 
   const handleReturnOrder = async (id) => {
     try {
-      await axios.put(
-        `http://localhost:5000/api/orders/${id}`,
+      await api.put(
+        `/orders/${id}`,
         { status: 'Returned' }
       );
       alert('Order marked as Returned');

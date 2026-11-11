@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import Footer from '../components/Footer';
 import './Contact.css';
 
@@ -24,7 +24,7 @@ function Contact() {
     e.preventDefault();
 
     try {
-      await axios.post('http://localhost:5000/api/contacts', form);
+      await api.post('/contacts', form);
       setStatusMessage('Your message has been sent successfully ! We will get back to you soon.');
       setShowPopup(true);
       setForm({ name: '', email: '', subject: '', message: '' });

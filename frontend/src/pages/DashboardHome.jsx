@@ -1,5 +1,5 @@
 ﻿import { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import DashboardSidebar from '../components/DashboardSidebar';
 import './DashboardHome.css';
 
@@ -16,10 +16,10 @@ function DashboardHome() {
   const fetchData = async () => {
     try {
       const [productsRes, ordersRes, returnsRes, contactsRes] = await Promise.all([
-        axios.get('http://localhost:5000/api/products'),
-        axios.get('http://localhost:5000/api/orders'),
-        axios.get('http://localhost:5000/api/returns'),
-        axios.get('http://localhost:5000/api/contacts')
+        api.get('/products'),
+        api.get('/orders'),
+        api.get('/returns'),
+        api.get('/contacts')
       ]);
 
       setProducts(productsRes.data);

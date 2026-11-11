@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import DashboardSidebar from '../components/DashboardSidebar';
 import './DashboardContacts.css';
 
@@ -12,7 +12,7 @@ function DashboardContacts() {
 
   const fetchContacts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/contacts');
+      const res = await api.get('/contacts');
       setContacts(res.data);
     } catch (error) {
       console.error('Error fetching contacts:', error);
@@ -25,7 +25,7 @@ function DashboardContacts() {
     }
 
     try {
-      await axios.delete(`http://localhost:5000/api/contacts/${id}`);
+      await api.delete(`/contacts/${id}`);
       fetchContacts();
     } catch (error) {
       console.error('Error deleting contact message:', error);

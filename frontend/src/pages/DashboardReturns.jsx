@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import DashboardSidebar from '../components/DashboardSidebar';
 import './DashboardReturns.css';
 
@@ -17,7 +17,7 @@ function DashboardReturns() {
 
   const fetchReturns = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/returns');
+      const res = await api.get('/returns');
       setReturnsData(res.data);
     } catch (error) {
       console.error('Error fetching returns:', error);
@@ -35,8 +35,8 @@ function DashboardReturns() {
     e.preventDefault();
 
     try {
-      await axios.post(
-        'http://localhost:5000/api/returns',
+      await api.post(
+        '/returns',
         returnForm
       );
 
@@ -57,8 +57,8 @@ function DashboardReturns() {
 
   const handleUpdateReturn = async (id, status) => {
     try {
-      await axios.put(
-        `http://localhost:5000/api/returns/${id}`,
+      await api.put(
+        `/returns/${id}`,
         { status }
       );
 
@@ -73,7 +73,7 @@ function DashboardReturns() {
   const handleDeleteReturn = async (id) => {
     if (window.confirm('Are you sure you want to delete this return request?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/returns/${id}`);
+        await api.delete(`/returns/${id}`);
         alert('Return Deleted');
         fetchReturns();
       } catch (error) {

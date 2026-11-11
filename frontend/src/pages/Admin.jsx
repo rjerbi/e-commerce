@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import { adminApi } from "../api";
 import { useNavigate } from "react-router-dom";
 
 function Admin() {
@@ -25,8 +25,8 @@ function Admin() {
 
     try {
 
-      const res = await axios.post(
-        "http://localhost:5000/admin/login",
+      const res = await adminApi.post(
+        "/admin/login",
         formData
       );
 

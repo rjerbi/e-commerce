@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import DashboardSidebar from '../components/DashboardSidebar';
 import './DashboardProducts.css';
 
@@ -19,7 +19,7 @@ function DashboardProducts() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/products');
+      const res = await api.get('/products');
       setProducts(res.data);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -38,15 +38,15 @@ function DashboardProducts() {
 
     try {
       if (editingId) {
-        await axios.put(
-          `http://localhost:5000/api/products/${editingId}`,
+        await api.put(
+          `/products/${editingId}`,
           formData
         );
         alert('Product Updated');
         setEditingId(null);
       } else {
-        await axios.post(
-          'http://localhost:5000/api/products',
+        await api.post(
+          '/products',
           formData
         );
         alert('Product Added');
@@ -69,7 +69,7 @@ function DashboardProducts() {
   const handleDeleteProduct = async (id) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/products/${id}`);
+        await api.delete(`/products/${id}`);
         alert('Product Deleted');
         fetchProducts();
       } catch (error) {

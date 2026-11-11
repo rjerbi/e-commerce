@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../api";
 import { useNavigate } from "react-router-dom";
 
 function Checkout({ cart, setCart }) {
@@ -51,8 +51,8 @@ function Checkout({ cart, setCart }) {
 
       const fullAddress = `${formData.address}, ${formData.city}, ${formData.state}, ${formData.zipCode} | Email: ${formData.email}`;
 
-      await axios.post(
-        "http://localhost:5000/api/orders",
+      await api.post(
+        "/orders",
         {
           customer_name:
             formData.name + " " + formData.surname,
