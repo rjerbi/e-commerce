@@ -1,0 +1,91 @@
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.dashboard-content {
+  flex: 1;
+  margin-left: 250px;
+  padding: 40px;
+  background: #f9fafb;
+  overflow-y: auto;
+}
+
+.dashboard-content h2 {
+  color: #111827;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.contacts-section {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.contacts-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.contacts-table thead {
+  background: #f3f4f6;
+}
+
+.contacts-table th,
+.contacts-table td {
+  padding: 15px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  color: #374151;
+}
+
+.contacts-table th {
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.contacts-table tr:hover {
+  background: #f9fafb;
+}
+
+.btn-delete {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-delete:hover {
+  background: #dc2626;
+}
+
+.no-data {
+  color: #6b7280;
+  text-align: center;
+  padding: 40px 0;
+}
+
+@media (max-width: 768px) {
+  .dashboard-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .contacts-table th,
+  .contacts-table td {
+    padding: 10px;
+  }
+}
