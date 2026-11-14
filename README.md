@@ -4,6 +4,8 @@ Tunixo is a full-stack e-commerce demo with a product storefront, an administrat
 
 **Live website:** [https://e-commerce-gilt-nine-43.vercel.app/](https://e-commerce-gilt-nine-43.vercel.app/)
 
+![Tunixo storefront](screenshot.png)
+
 ## Features
 
 - Browse products and add them to a shopping cart.
@@ -124,5 +126,3 @@ Make sure `CLIENT_URL` on Render matches the deployed Vercel site origin.
 - The AI assistant requires a valid `GROQ_API_KEY`. Keep this key in the backend environment only; do not put it in frontend variables or commit it to source control.
 - The checkout flow stores order information and is intended as a project demo; it does not integrate a payment provider.
 - Add production-grade authentication and authorization before using the admin features with real customer or business data.
-
-![Tunixo storefront](screenshot.png)
