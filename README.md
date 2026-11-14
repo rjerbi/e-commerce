@@ -3,8 +3,11 @@
 Tunixo is a full-stack e-commerce demo with a product storefront, an administration dashboard, and an AI shopping assistant. The assistant uses an LLM to answer questions about products in the store catalog.
 
 **Live website:** [https://e-commerce-gilt-nine-43.vercel.app/](https://e-commerce-gilt-nine-43.vercel.app/)
+<br/>
 
 ![Tunixo storefront](screenshot.png)
+
+<br/>
 
 ## Features
 
