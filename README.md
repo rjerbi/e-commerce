@@ -5,7 +5,7 @@ Tunixo is a full-stack e-commerce demo with a product storefront, an administrat
 **Live website:** [https://e-commerce-gilt-nine-43.vercel.app/](https://e-commerce-gilt-nine-43.vercel.app/)
 <br/>
 
-![Tunixo storefront](screenshot.png)
+<img src="screenshot.png" alt="Tunixo storefront" width="700">
 
 <br/>
 
